@@ -5,23 +5,21 @@ Member: Laurenz von Schilgen
 
 Automatic curriculum learning for contextual reinforcement learning, studying difficulty balancing and generalization across CARL environments with PPO-based agents.
 
-This repository contains the code, experiments, and results for the RL Exam project. The project investigates how automatic context curricula can improve training and generalization in contextual reinforcement learning settings, with a focus on balancing task difficulty across CARL benchmark environments.
+This repository contains the code, experiments, and results for the RL Exam project.
 
 Project Overview
-Contextual reinforcement learning models tasks as contextual MDPs, where environment dynamics or rewards vary across contexts.
-This project studies whether automatically selecting contexts during training can improve generalization compared to static or uniformly sampled curricula, especially on interpretable benchmark environments such as CARL.
+This project studies automatic curriculum learning in contextual reinforcement learning. The main goal is to understand how task or context difficulty should be balanced during training and how this affects generalization across CARL environments.
 
-The main focus is on PPO-based agents and curriculum strategies that adapt the training distribution over contexts according to signals such as performance, difficulty, or uncertainty.
-The goal is to evaluate how these choices affect training efficiency, robustness, and transfer to unseen contexts.
+A particular focus is on comparing different curriculum signals, such as performance-, error-, or uncertainty-based selection, as well as different setups where the context is either given to the agent directly or has to be inferred.
 
 Goals
 Study automatic curriculum learning in contextual reinforcement learning.
 
-Analyze difficulty balancing across multiple CARL environments.
+Analyze difficulty balancing across CARL environments.
 
 Compare curriculum strategies for PPO-based agents.
 
-Evaluate in-distribution and out-of-distribution generalization across contexts.
+Evaluate generalization across different contexts.
 
 Scope
-This repository is intended for the RL Exam and serves as the central codebase for implementation, experiments, analysis, and documentation.
+This repository serves as the central codebase for implementation, experiments, analysis, and documentation for the RL Exam project.
