@@ -1,0 +1,38 @@
+# Defaults for CARLMountainCar experiments (bonus environment, not required by
+# the proposal). NOTE: notoriously hard for vanilla PPO without reward
+# shaping (sparse, only mildly informative reward) - don't be surprised if
+# every handling policy struggles roughly equally here. Kept anyway for
+# environment diversity / a robustness check on a very different reward
+# structure than CartPole/Pendulum/Acrobot.
+# eval_freq is higher than the other envs: MountainCar episodes basically
+# always run the full 200-step cap (no early termination without solving it),
+# so each eval call costs ~n_contexts * eval_episodes_per_context * 200 steps -
+# a much bigger relative overhead here than in envs with short episodes.
+total_timesteps: 300000
+n_envs: 8
+n_contexts: 50
+eval_freq: 50000
+eval_episodes_per_context: 3
+
+ppo:
+  learning_rate: 0.0003
+  n_steps: 256
+  batch_size: 256
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.01
+  vf_coef: 0.5
+
+signal_params:
+  ema_alpha: 0.3
+  hard_std_factor: 1.0
+  patience: 3
+
+policy_params:
+  floor: 0.02
+  downweight_factor: 0.3
+  cooldown: 8
+  temperature: 1.0
+  uniform_mix: 0.05

@@ -1,0 +1,31 @@
+# Defaults for CARLLunarLander experiments (optional second environment, used
+# only as a robustness check per the proposal). Needs a working Box2D binding -
+# see README's Setup / WSL setup sections.
+total_timesteps: 500000
+n_envs: 8
+n_contexts: 50
+eval_freq: 25000
+eval_episodes_per_context: 3
+
+ppo:
+  learning_rate: 0.0003
+  n_steps: 512
+  batch_size: 256
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.01
+  vf_coef: 0.5
+
+signal_params:
+  ema_alpha: 0.3
+  hard_std_factor: 1.0
+  patience: 3
+
+policy_params:
+  floor: 0.02
+  downweight_factor: 0.3
+  cooldown: 8
+  temperature: 1.0
+  uniform_mix: 0.05
